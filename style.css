@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --bg-body: #FFFFFF;
+  --bg-cards: #E1E1E6;
+  --bg-cards-hover: #9e9ea1;
+  --bg-cards-selected: #ebb504;
+  --bg-icon: #323238;
+  --bg-icon-selected: #FFFFFF;
+}
+
+body {
+  background: var(--bg-body);
+
+  transition: background 300ms;
+
+  font-family: 'Roboto', sans-serif;
+
+  min-height: 100vh;
+
+  display: grid;
+}
+
+.theme-light, .theme-dark {
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+}
+
+.dark-mode {
+  color: white;
+  --bg-body: #121214;
+  --bg-cards: #29292E;
+  --bg-cards-hover: #6b6b6d;
+  --bg-cards-selected: #ebb504a8;
+  --bg-icon: #C4C4CC;
+  --bg-icon-selected: #FFFFFF;
+}
+
+main {
+  width: 82.1rem;
+
+  margin: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  justify-self: center;
+  align-self: center;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+
+  outline: none;
+
+  background: transparent;
+}
+
+.stopwatch {
+  display: grid;
+  align-content: center;
+}
+
+.timer {
+  font-size: 12.6rem;
+  line-height: 13rem;
+
+  margin-bottom: 2.7rem;
+
+  display: flex;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.controls svg path {
+  fill: var(--bg-icon)
+}
+
+.hide {
+  display: none;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 13.8rem 13.8rem;
+  grid-template-areas: 
+  "A B"
+  "C D";
+  gap: 3.2rem;
+}
+
+button .tree {
+  grid-area: A;
+}
+
+button .rain {
+  grid-area: B;
+}
+
+button .shop {
+  grid-area: C;
+}
+
+button .fire {
+  grid-area: D;
+}
+
+.tree-wrapper, .rain-wrapper, .shop-wrapper, .fire-wrapper {
+  padding: 2.25rem;
+
+  height: 15.2rem;
+
+  border-radius: 2.4rem;
+
+  background: var(--bg-cards);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+
+  transition: background 300ms;
+}
+
+.tree-slider, .rain-slider, .shop-slider, .fire-slider {
+  appearance: none;
+  outline: none;
+  width: 100%;
+  height: .4rem;
+
+  background: var(--bg-icon);
+
+  border-radius: 5px;
+}
+
+.tree-slider::-webkit-slider-thumb, 
+.rain-slider::-webkit-slider-thumb, 
+.shop-slider::-webkit-slider-thumb, 
+.fire-slider::-webkit-slider-thumb {
+  appearance: none;
+
+  width: 1.6rem;
+  height: 1.6rem;
+
+  background: var(--bg-icon);
+
+  border-radius: 99px;
+
+  cursor: pointer;
+}
+
+.tree-wrapper:hover, .rain-wrapper:hover, .shop-wrapper:hover, .fire-wrapper:hover {
+  background: var(--bg-cards-hover);
+
+  transition: background 300ms;
+
+  cursor: pointer;
+}
+
+.cards svg path, .cards svg rect, .cards svg circle {
+  fill: var(--bg-icon);
+}
+
+.selected, .selected svg path {
+  background: var(--bg-cards-selected);
+
+  fill: var(--bg-icon-selected);
+
+  transition: background 300ms;
+}
+
+.selected #volume, .selected #volume::-webkit-slider-thumb {
+  background: var(--bg-icon-selected);
+}
